@@ -1,0 +1,91 @@
+name: Amadeus Smoke Test
+
+on:
+  workflow_dispatch:
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+
+    env:
+      AMADEUS_CLIENT_ID: ${{ secrets.AMADEUS_CLIENT_ID }}
+      AMADEUS_CLIENT_SECRET: ${{ secrets.AMADEUS_CLIENT_SECRET }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m pip install -U pip
+          if [ -f requirements.txt ]; then
+            pip install -r requirements.txt
+          fi
+          # pytest 用于可选测试
+          pip install pytest
+
+      - name: Verify env loaded (no secrets printed)
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ -z "${AMADEUS_CLIENT_ID:-}" ]; then
+            echo "AMADEUS_CLIENT_ID is EMPTY"
+            exit 1
+          else
+            echo "AMADEUS_CLIENT_ID is SET"
+          fi
+
+          if [ -z "${AMADEUS_CLIENT_SECRET:-}" ]; then
+            echo "AMADEUS_CLIENT_SECRET is EMPTY"
+            exit 1
+          else
+            echo "AMADEUS_CLIENT_SECRET is SET"
+          fi
+
+      - name: Run tests (ignore 'no tests collected')
+        shell: bash
+        run: |
+          set -euo pipefail
+          set +e
+          pytest -q
+          code=$?
+          set -e
+          if [ "$code" -ne 0 ] && [ "$code" -ne 5 ]; then
+            echo "pytest failed with exit code $code"
+            exit "$code"
+          fi
+          echo "pytest exit code: $code (0=ok,5=no tests collected)"
+
+      - name: Run planner (debug + run)
+        shell: bash
+        run: |
+          set -euo pipefail
+          echo "PWD=$(pwd)"
+          echo "Top-level files:"
+          ls -la
+
+          echo "Find planner.py (maxdepth 3):"
+          find . -maxdepth 3 -name "planner.py" -print
+
+          if [ -f "./planner.py" ]; then
+            echo "Running: python ./planner.py"
+            python ./planner.py
+            exit 0
+          fi
+
+          p="$(find . -maxdepth 3 -name "planner.py" -print | head -n 1)"
+          if [ -z "$p" ]; then
+            echo "planner.py not found in this checkout."
+            echo "If your entrypoint is different, edit this workflow to run the correct command from README."
+            exit 1
+          fi
+
+          echo "Running: python $p"
+          python "$p"
