@@ -25,7 +25,6 @@
       "price_key": "hak_pvg_direct_20260301"
     }
   ],
-
   "haikou_to_zhanjiang_wuchuan": [
     {
       "rail_cost": 90,
@@ -67,7 +66,6 @@
       "price_key": "zha_pvg_20260301"
     }
   ],
-
   "leave_hainan_then_transfer": [
     {
       "first_hop_to": "广州",
@@ -99,7 +97,6 @@
       "first_hop_price_key": "hak_can_20260301",
       "second_hop_price_key": "can_hgh_20260301"
     },
-
     {
       "first_hop_to": "深圳",
       "first_hop_cost": 0,
@@ -131,7 +128,6 @@
       "second_hop_price_key": "szx_ngb_20260301"
     }
   ],
-
   "hidden_city_like": [
     {
       "flight_no": "MUXXX(终点东京)",
@@ -141,7 +137,6 @@
       "rail_hours": 0.45
     }
   ],
-
   "visa_free_outbound_then_back": [
     {
       "country": "新加坡",
@@ -152,7 +147,6 @@
       "inbound_hours": 5.2
     }
   ],
-
   "extra_strategies": [
     {
       "name": "飞无锡后城际到苏州（2026-02-27）",
@@ -223,7 +217,6 @@
       ],
       "risks": []
     },
-
     {
       "name": "飞南京后高铁到苏州（2026-02-27）",
       "legs": [
