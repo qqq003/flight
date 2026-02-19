@@ -65,6 +65,17 @@ jobs:
           set -euo pipefail
           python planner.py --data data/sample_options.json
 
+      - name: Summarize results to a table
+        run: |
+          python scripts/summarize_results.py
+
+      - name: Upload summary as artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: summary
+          path: summary.md
+
       - name: Upload updated data as artifact
         if: always()
         uses: actions/upload-artifact@v4
