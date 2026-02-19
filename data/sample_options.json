@@ -1,31 +1,6 @@
 {
   "direct_to_shanghai": [
     {
-      "flight_no": "HU7601",
-      "flight_cost": 0,
-      "flight_hours": 2.75,
-      "rail_cost": 35,
-      "rail_hours": 0.45,
-      "price_key": "hak_sha_direct_20260227"
-    },
-    {
-      "flight_no": "HU7601",
-      "flight_cost": 0,
-      "flight_hours": 2.75,
-      "rail_cost": 35,
-      "rail_hours": 0.45,
-      "price_key": "hak_sha_direct_20260228"
-    },
-    {
-      "flight_no": "HU7601",
-      "flight_cost": 0,
-      "flight_hours": 2.75,
-      "rail_cost": 35,
-      "rail_hours": 0.45,
-      "price_key": "hak_sha_direct_20260301"
-    },
-
-    {
       "flight_no": "MU6322",
       "flight_cost": 0,
       "flight_hours": 3.0,
@@ -63,7 +38,7 @@
       "flight_hours": 2.8,
       "rail_to_suzhou_cost": 35,
       "rail_to_suzhou_hours": 0.45,
-      "price_key": "zha_sha_20260227"
+      "price_key": "zha_pvg_20260227"
     },
     {
       "rail_cost": 90,
@@ -76,7 +51,7 @@
       "flight_hours": 2.8,
       "rail_to_suzhou_cost": 35,
       "rail_to_suzhou_hours": 0.45,
-      "price_key": "zha_sha_20260228"
+      "price_key": "zha_pvg_20260228"
     },
     {
       "rail_cost": 90,
@@ -89,7 +64,7 @@
       "flight_hours": 2.8,
       "rail_to_suzhou_cost": 35,
       "rail_to_suzhou_hours": 0.45,
-      "price_key": "zha_sha_20260301"
+      "price_key": "zha_pvg_20260301"
     }
   ],
 
@@ -320,7 +295,7 @@
     },
 
     {
-      "name": "国际：海口→新加坡（2026-02-27）",
+      "name": "国际中转：海口→新加坡→浦东（2026-02-27）",
       "legs": [
         {
           "mode": "flight",
@@ -330,12 +305,21 @@
           "hours": 0,
           "notes": "实时取价 HAK→SIN 2026-02-27",
           "price_key": "hak_sin_20260227"
+        },
+        {
+          "mode": "flight",
+          "origin": "新加坡",
+          "destination": "上海浦东",
+          "cost": 0,
+          "hours": 0,
+          "notes": "实时取价 SIN→PVG 2026-02-27",
+          "price_key": "sin_pvg_20260227"
         }
       ],
       "risks": []
     },
     {
-      "name": "国际：海口→新加坡（2026-02-28）",
+      "name": "国际中转：海口→新加坡→浦东（2026-02-28）",
       "legs": [
         {
           "mode": "flight",
@@ -345,12 +329,21 @@
           "hours": 0,
           "notes": "实时取价 HAK→SIN 2026-02-28",
           "price_key": "hak_sin_20260228"
+        },
+        {
+          "mode": "flight",
+          "origin": "新加坡",
+          "destination": "上海浦东",
+          "cost": 0,
+          "hours": 0,
+          "notes": "实时取价 SIN→PVG 2026-02-28",
+          "price_key": "sin_pvg_20260228"
         }
       ],
       "risks": []
     },
     {
-      "name": "国际：海口→新加坡（2026-03-01）",
+      "name": "国际中转：海口→新加坡→浦东（2026-03-01）",
       "legs": [
         {
           "mode": "flight",
@@ -360,13 +353,22 @@
           "hours": 0,
           "notes": "实时取价 HAK→SIN 2026-03-01",
           "price_key": "hak_sin_20260301"
+        },
+        {
+          "mode": "flight",
+          "origin": "新加坡",
+          "destination": "上海浦东",
+          "cost": 0,
+          "hours": 0,
+          "notes": "实时取价 SIN→PVG 2026-03-01",
+          "price_key": "sin_pvg_20260301"
         }
       ],
       "risks": []
     },
 
     {
-      "name": "国际：海口→首尔(仁川)（2026-02-27）",
+      "name": "国际中转：海口→首尔(仁川)→浦东（2026-02-27）",
       "legs": [
         {
           "mode": "flight",
@@ -376,12 +378,21 @@
           "hours": 0,
           "notes": "实时取价 HAK→ICN 2026-02-27",
           "price_key": "hak_icn_20260227"
+        },
+        {
+          "mode": "flight",
+          "origin": "首尔(仁川)",
+          "destination": "上海浦东",
+          "cost": 0,
+          "hours": 0,
+          "notes": "实时取价 ICN→PVG 2026-02-27",
+          "price_key": "icn_pvg_20260227"
         }
       ],
       "risks": []
     },
     {
-      "name": "国际：海口→首尔(仁川)（2026-02-28）",
+      "name": "国际中转：海口→首尔(仁川)→浦东（2026-02-28）",
       "legs": [
         {
           "mode": "flight",
@@ -391,12 +402,21 @@
           "hours": 0,
           "notes": "实时取价 HAK→ICN 2026-02-28",
           "price_key": "hak_icn_20260228"
+        },
+        {
+          "mode": "flight",
+          "origin": "首尔(仁川)",
+          "destination": "上海浦东",
+          "cost": 0,
+          "hours": 0,
+          "notes": "实时取价 ICN→PVG 2026-02-28",
+          "price_key": "icn_pvg_20260228"
         }
       ],
       "risks": []
     },
     {
-      "name": "国际：海口→首尔(仁川)（2026-03-01）",
+      "name": "国际中转：海口→首尔(仁川)→浦东（2026-03-01）",
       "legs": [
         {
           "mode": "flight",
@@ -406,13 +426,22 @@
           "hours": 0,
           "notes": "实时取价 HAK→ICN 2026-03-01",
           "price_key": "hak_icn_20260301"
+        },
+        {
+          "mode": "flight",
+          "origin": "首尔(仁川)",
+          "destination": "上海浦东",
+          "cost": 0,
+          "hours": 0,
+          "notes": "实时取价 ICN→PVG 2026-03-01",
+          "price_key": "icn_pvg_20260301"
         }
       ],
       "risks": []
     },
 
     {
-      "name": "国际：海口→曼谷(BKK)（2026-02-27）",
+      "name": "国际中转：海口→曼谷(BKK)→浦东（2026-02-27）",
       "legs": [
         {
           "mode": "flight",
@@ -422,12 +451,21 @@
           "hours": 0,
           "notes": "实时取价 HAK→BKK 2026-02-27",
           "price_key": "hak_bkk_20260227"
+        },
+        {
+          "mode": "flight",
+          "origin": "曼谷(BKK)",
+          "destination": "上海浦东",
+          "cost": 0,
+          "hours": 0,
+          "notes": "实时取价 BKK→PVG 2026-02-27",
+          "price_key": "bkk_pvg_20260227"
         }
       ],
       "risks": []
     },
     {
-      "name": "国际：海口→曼谷(BKK)（2026-02-28）",
+      "name": "国际中转：海口→曼谷(BKK)→浦东（2026-02-28）",
       "legs": [
         {
           "mode": "flight",
@@ -437,12 +475,21 @@
           "hours": 0,
           "notes": "实时取价 HAK→BKK 2026-02-28",
           "price_key": "hak_bkk_20260228"
+        },
+        {
+          "mode": "flight",
+          "origin": "曼谷(BKK)",
+          "destination": "上海浦东",
+          "cost": 0,
+          "hours": 0,
+          "notes": "实时取价 BKK→PVG 2026-02-28",
+          "price_key": "bkk_pvg_20260228"
         }
       ],
       "risks": []
     },
     {
-      "name": "国际：海口→曼谷(BKK)（2026-03-01）",
+      "name": "国际中转：海口→曼谷(BKK)→浦东（2026-03-01）",
       "legs": [
         {
           "mode": "flight",
@@ -452,6 +499,15 @@
           "hours": 0,
           "notes": "实时取价 HAK→BKK 2026-03-01",
           "price_key": "hak_bkk_20260301"
+        },
+        {
+          "mode": "flight",
+          "origin": "曼谷(BKK)",
+          "destination": "上海浦东",
+          "cost": 0,
+          "hours": 0,
+          "notes": "实时取价 BKK→PVG 2026-03-01",
+          "price_key": "bkk_pvg_20260301"
         }
       ],
       "risks": []
