@@ -1,16 +1,12 @@
 {
   "routes": [
-    {"key": "hak_sha_direct_20260227", "origin": "HAK", "destination": "SHA", "departure_date": "2026-02-27"},
-    {"key": "hak_sha_direct_20260228", "origin": "HAK", "destination": "SHA", "departure_date": "2026-02-28"},
-    {"key": "hak_sha_direct_20260301", "origin": "HAK", "destination": "SHA", "departure_date": "2026-03-01"},
-
     {"key": "hak_pvg_direct_20260227", "origin": "HAK", "destination": "PVG", "departure_date": "2026-02-27"},
     {"key": "hak_pvg_direct_20260228", "origin": "HAK", "destination": "PVG", "departure_date": "2026-02-28"},
     {"key": "hak_pvg_direct_20260301", "origin": "HAK", "destination": "PVG", "departure_date": "2026-03-01"},
 
-    {"key": "zha_sha_20260227", "origin": "ZHA", "destination": "SHA", "departure_date": "2026-02-27"},
-    {"key": "zha_sha_20260228", "origin": "ZHA", "destination": "SHA", "departure_date": "2026-02-28"},
-    {"key": "zha_sha_20260301", "origin": "ZHA", "destination": "SHA", "departure_date": "2026-03-01"},
+    {"key": "zha_pvg_20260227", "origin": "ZHA", "destination": "PVG", "departure_date": "2026-02-27"},
+    {"key": "zha_pvg_20260228", "origin": "ZHA", "destination": "PVG", "departure_date": "2026-02-28"},
+    {"key": "zha_pvg_20260301", "origin": "ZHA", "destination": "PVG", "departure_date": "2026-03-01"},
 
     {"key": "hak_can_20260227", "origin": "HAK", "destination": "CAN", "departure_date": "2026-02-27"},
     {"key": "hak_can_20260228", "origin": "HAK", "destination": "CAN", "departure_date": "2026-02-28"},
@@ -40,12 +36,24 @@
     {"key": "hak_sin_20260228", "origin": "HAK", "destination": "SIN", "departure_date": "2026-02-28"},
     {"key": "hak_sin_20260301", "origin": "HAK", "destination": "SIN", "departure_date": "2026-03-01"},
 
+    {"key": "sin_pvg_20260227", "origin": "SIN", "destination": "PVG", "departure_date": "2026-02-27"},
+    {"key": "sin_pvg_20260228", "origin": "SIN", "destination": "PVG", "departure_date": "2026-02-28"},
+    {"key": "sin_pvg_20260301", "origin": "SIN", "destination": "PVG", "departure_date": "2026-03-01"},
+
     {"key": "hak_icn_20260227", "origin": "HAK", "destination": "ICN", "departure_date": "2026-02-27"},
     {"key": "hak_icn_20260228", "origin": "HAK", "destination": "ICN", "departure_date": "2026-02-28"},
     {"key": "hak_icn_20260301", "origin": "HAK", "destination": "ICN", "departure_date": "2026-03-01"},
 
+    {"key": "icn_pvg_20260227", "origin": "ICN", "destination": "PVG", "departure_date": "2026-02-27"},
+    {"key": "icn_pvg_20260228", "origin": "ICN", "destination": "PVG", "departure_date": "2026-02-28"},
+    {"key": "icn_pvg_20260301", "origin": "ICN", "destination": "PVG", "departure_date": "2026-03-01"},
+
     {"key": "hak_bkk_20260227", "origin": "HAK", "destination": "BKK", "departure_date": "2026-02-27"},
     {"key": "hak_bkk_20260228", "origin": "HAK", "destination": "BKK", "departure_date": "2026-02-28"},
-    {"key": "hak_bkk_20260301", "origin": "HAK", "destination": "BKK", "departure_date": "2026-03-01"}
+    {"key": "hak_bkk_20260301", "origin": "HAK", "destination": "BKK", "departure_date": "2026-03-01"},
+
+    {"key": "bkk_pvg_20260227", "origin": "BKK", "destination": "PVG", "departure_date": "2026-02-27"},
+    {"key": "bkk_pvg_20260228", "origin": "BKK", "destination": "PVG", "departure_date": "2026-02-28"},
+    {"key": "bkk_pvg_20260301", "origin": "BKK", "destination": "PVG", "departure_date": "2026-03-01"}
   ]
 }
