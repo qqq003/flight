@@ -1,4 +1,4 @@
-name: Amadeus Smoke Test
+name: Amadeus Live Update + Planner
 
 on:
   workflow_dispatch:
@@ -20,100 +20,56 @@ jobs:
           python-version: "3.11"
 
       - name: Install dependencies
+        shell: bash
         run: |
+          set -euo pipefail
           python -m pip install -U pip
-          if [ -f requirements.txt ]; then
-            pip install -r requirements.txt
-          fi
-          pip install pytest requests
+          # 你的项目没 requirements.txt 也没关系
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          pip install requests
 
       - name: Verify env loaded (no secrets printed)
+        shell: bash
         run: |
-          if [ -z "${AMADEUS_CLIENT_ID:-}" ]; then
-            echo "AMADEUS_CLIENT_ID is EMPTY"
-            exit 1
-          else
-            echo "AMADEUS_CLIENT_ID is SET"
-          fi
+          set -euo pipefail
+          [ -n "${AMADEUS_CLIENT_ID:-}" ] && echo "AMADEUS_CLIENT_ID is SET" || (echo "AMADEUS_CLIENT_ID is EMPTY" && exit 1)
+          [ -n "${AMADEUS_CLIENT_SECRET:-}" ] && echo "AMADEUS_CLIENT_SECRET is SET" || (echo "AMADEUS_CLIENT_SECRET is EMPTY" && exit 1)
 
-          if [ -z "${AMADEUS_CLIENT_SECRET:-}" ]; then
-            echo "AMADEUS_CLIENT_SECRET is EMPTY"
-            exit 1
-          else
-            echo "AMADEUS_CLIENT_SECRET is SET"
-          fi
-
-      - name: Run tests (ignore 'no tests collected')
+      - name: Snapshot data BEFORE update
+        shell: bash
         run: |
-          set +e
-          pytest -q
-          code=$?
-          set -e
-          if [ "$code" -ne 0 ] && [ "$code" -ne 5 ]; then
-            echo "pytest failed with exit code $code"
-            exit "$code"
-          fi
-          echo "pytest exit code: $code (0=ok,5=no tests collected)"
+          set -euo pipefail
+          echo "=== routes_config.json ==="
+          cat data/routes_config.json
+          echo "=== sample_options.json (before) ==="
+          cat data/sample_options.json
 
-      - name: Amadeus token smoke (live connectivity; no token printed)
+      - name: Fetch live prices from Amadeus and update JSON
+        shell: bash
         run: |
-          python - <<'PY'
-          import os, requests
-          cid = os.getenv("AMADEUS_CLIENT_ID")
-          sec = os.getenv("AMADEUS_CLIENT_SECRET")
-          assert cid and sec, "missing amadeus creds"
+          set -euo pipefail
+          python scripts/update_prices.py --config data/routes_config.json --data data/sample_options.json
 
-          url = "https://test.api.amadeus.com/v1/security/oauth2/token"
-          r = requests.post(
-              url,
-              data={
-                  "grant_type": "client_credentials",
-                  "client_id": cid,
-                  "client_secret": sec,
-              },
-              timeout=20,
-          )
-
-          print("token_url", url)
-          print("token_status", r.status_code)
-          print("content_type", r.headers.get("content-type", ""))
-          print("body_prefix", (r.text or "")[:120].replace("\n", " "))
-          PY
-
-      - name: Inspect planner.py for live/mock switch
+      - name: Show changes AFTER update (prove live update happened)
+        shell: bash
         run: |
-          python - <<'PY'
-          import re, pathlib
-          p = pathlib.Path("planner.py")
-          t = p.read_text(encoding="utf-8", errors="ignore")
-          # 打印包含关键字的行（不泄露密钥）
-          keys = ["AMADEUS", "amadeus", "sample_options", "routes_config", "test.api.amadeus.com", "oauth2", "flight-offers", "requests"]
-          for i, line in enumerate(t.splitlines(), 1):
-              if any(k in line for k in keys):
-                  print(f"{i:04d}: {line}")
-          PY
+          set -euo pipefail
+          echo "=== sample_options.json (after) ==="
+          cat data/sample_options.json
+          echo "=== git diff (data/sample_options.json) ==="
+          git diff -- data/sample_options.json || true
 
-
-      - name: Run planner (debug + run)
+      - name: Run planner using updated data
+        shell: bash
         run: |
-          echo "PWD=$(pwd)"
-          echo "Top-level files:"
-          ls -la
+          set -euo pipefail
+          python planner.py --data data/sample_options.json
 
-          echo "Find planner.py (maxdepth 3):"
-          find . -maxdepth 3 -name "planner.py" -print
-
-          if [ -f "./planner.py" ]; then
-            echo "Running: python ./planner.py"
-            python ./planner.py
-            exit 0
-          fi
-
-          p="$(find . -maxdepth 3 -name "planner.py" -print | head -n 1)"
-          if [ -z "$p" ]; then
-            echo "planner.py not found in this checkout."
-            exit 1
-          fi
-
-          echo "Running: python $p"
-          python "$p"
+      - name: Upload updated data as artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: updated-data
+          path: |
+            data/sample_options.json
+            data/routes_config.json
