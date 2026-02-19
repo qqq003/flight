@@ -2,21 +2,55 @@
   "direct_to_shanghai": [
     {
       "flight_no": "HU7601",
-      "flight_cost": 640,
+      "flight_cost": 0,
       "flight_hours": 2.75,
       "rail_cost": 35,
       "rail_hours": 0.45,
-      "price_key": "hak_sha_direct"
+      "price_key": "hak_sha_direct_20260227"
     },
     {
+      "flight_no": "HU7601",
+      "flight_cost": 0,
+      "flight_hours": 2.75,
+      "rail_cost": 35,
+      "rail_hours": 0.45,
+      "price_key": "hak_sha_direct_20260228"
+    },
+    {
+      "flight_no": "HU7601",
+      "flight_cost": 0,
+      "flight_hours": 2.75,
+      "rail_cost": 35,
+      "rail_hours": 0.45,
+      "price_key": "hak_sha_direct_20260301"
+    },
+
+    {
       "flight_no": "MU6322",
-      "flight_cost": 520,
+      "flight_cost": 0,
       "flight_hours": 3.0,
       "rail_cost": 35,
       "rail_hours": 0.45,
-      "price_key": "hak_pvg_direct"
+      "price_key": "hak_pvg_direct_20260227"
+    },
+    {
+      "flight_no": "MU6322",
+      "flight_cost": 0,
+      "flight_hours": 3.0,
+      "rail_cost": 35,
+      "rail_hours": 0.45,
+      "price_key": "hak_pvg_direct_20260228"
+    },
+    {
+      "flight_no": "MU6322",
+      "flight_cost": 0,
+      "flight_hours": 3.0,
+      "rail_cost": 35,
+      "rail_hours": 0.45,
+      "price_key": "hak_pvg_direct_20260301"
     }
   ],
+
   "haikou_to_zhanjiang_wuchuan": [
     {
       "rail_cost": 90,
@@ -25,35 +59,104 @@
       "transfer_cost": 70,
       "transfer_hours": 0.9,
       "flight_no": "GX8891",
-      "flight_cost": 360,
+      "flight_cost": 0,
       "flight_hours": 2.8,
       "rail_to_suzhou_cost": 35,
       "rail_to_suzhou_hours": 0.45,
-      "price_key": "zha_sha"
+      "price_key": "zha_sha_20260227"
+    },
+    {
+      "rail_cost": 90,
+      "rail_hours": 3.2,
+      "rail_note": "海口东-湛江西",
+      "transfer_cost": 70,
+      "transfer_hours": 0.9,
+      "flight_no": "GX8891",
+      "flight_cost": 0,
+      "flight_hours": 2.8,
+      "rail_to_suzhou_cost": 35,
+      "rail_to_suzhou_hours": 0.45,
+      "price_key": "zha_sha_20260228"
+    },
+    {
+      "rail_cost": 90,
+      "rail_hours": 3.2,
+      "rail_note": "海口东-湛江西",
+      "transfer_cost": 70,
+      "transfer_hours": 0.9,
+      "flight_no": "GX8891",
+      "flight_cost": 0,
+      "flight_hours": 2.8,
+      "rail_to_suzhou_cost": 35,
+      "rail_to_suzhou_hours": 0.45,
+      "price_key": "zha_sha_20260301"
     }
   ],
+
   "leave_hainan_then_transfer": [
     {
       "first_hop_to": "广州",
-      "first_hop_cost": 220,
+      "first_hop_cost": 0,
       "first_hop_hours": 1.3,
       "transfer_city": "杭州",
-      "second_hop_cost": 260,
+      "second_hop_cost": 0,
       "second_hop_hours": 2.0,
-      "first_hop_price_key": "hak_can",
-      "second_hop_price_key": "can_hgh"
+      "first_hop_price_key": "hak_can_20260227",
+      "second_hop_price_key": "can_hgh_20260227"
+    },
+    {
+      "first_hop_to": "广州",
+      "first_hop_cost": 0,
+      "first_hop_hours": 1.3,
+      "transfer_city": "杭州",
+      "second_hop_cost": 0,
+      "second_hop_hours": 2.0,
+      "first_hop_price_key": "hak_can_20260228",
+      "second_hop_price_key": "can_hgh_20260228"
+    },
+    {
+      "first_hop_to": "广州",
+      "first_hop_cost": 0,
+      "first_hop_hours": 1.3,
+      "transfer_city": "杭州",
+      "second_hop_cost": 0,
+      "second_hop_hours": 2.0,
+      "first_hop_price_key": "hak_can_20260301",
+      "second_hop_price_key": "can_hgh_20260301"
+    },
+
+    {
+      "first_hop_to": "深圳",
+      "first_hop_cost": 0,
+      "first_hop_hours": 1.4,
+      "transfer_city": "宁波",
+      "second_hop_cost": 0,
+      "second_hop_hours": 2.1,
+      "first_hop_price_key": "hak_szx_20260227",
+      "second_hop_price_key": "szx_ngb_20260227"
     },
     {
       "first_hop_to": "深圳",
-      "first_hop_cost": 240,
+      "first_hop_cost": 0,
       "first_hop_hours": 1.4,
       "transfer_city": "宁波",
-      "second_hop_cost": 280,
+      "second_hop_cost": 0,
       "second_hop_hours": 2.1,
-      "first_hop_price_key": "hak_szx",
-      "second_hop_price_key": "szx_ngb"
+      "first_hop_price_key": "hak_szx_20260228",
+      "second_hop_price_key": "szx_ngb_20260228"
+    },
+    {
+      "first_hop_to": "深圳",
+      "first_hop_cost": 0,
+      "first_hop_hours": 1.4,
+      "transfer_city": "宁波",
+      "second_hop_cost": 0,
+      "second_hop_hours": 2.1,
+      "first_hop_price_key": "hak_szx_20260301",
+      "second_hop_price_key": "szx_ngb_20260301"
     }
   ],
+
   "hidden_city_like": [
     {
       "flight_no": "MUXXX(终点东京)",
@@ -63,6 +166,7 @@
       "rail_hours": 0.45
     }
   ],
+
   "visa_free_outbound_then_back": [
     {
       "country": "新加坡",
@@ -73,18 +177,19 @@
       "inbound_hours": 5.2
     }
   ],
+
   "extra_strategies": [
     {
-      "name": "飞无锡后城际到苏州",
+      "name": "飞无锡后城际到苏州（2026-02-27）",
       "legs": [
         {
           "mode": "flight",
           "origin": "海口",
           "destination": "无锡",
-          "cost": 430,
+          "cost": 0,
           "hours": 2.7,
-          "notes": "可避免上海落地拥堵",
-          "price_key": "hak_wux"
+          "notes": "实时取价 HAK→WUX 2026-02-27",
+          "price_key": "hak_wux_20260227"
         },
         {
           "mode": "rail",
@@ -98,16 +203,63 @@
       "risks": []
     },
     {
-      "name": "飞南京后高铁到苏州",
+      "name": "飞无锡后城际到苏州（2026-02-28）",
+      "legs": [
+        {
+          "mode": "flight",
+          "origin": "海口",
+          "destination": "无锡",
+          "cost": 0,
+          "hours": 2.7,
+          "notes": "实时取价 HAK→WUX 2026-02-28",
+          "price_key": "hak_wux_20260228"
+        },
+        {
+          "mode": "rail",
+          "origin": "无锡",
+          "destination": "苏州",
+          "cost": 25,
+          "hours": 0.35,
+          "notes": "城际/打车"
+        }
+      ],
+      "risks": []
+    },
+    {
+      "name": "飞无锡后城际到苏州（2026-03-01）",
+      "legs": [
+        {
+          "mode": "flight",
+          "origin": "海口",
+          "destination": "无锡",
+          "cost": 0,
+          "hours": 2.7,
+          "notes": "实时取价 HAK→WUX 2026-03-01",
+          "price_key": "hak_wux_20260301"
+        },
+        {
+          "mode": "rail",
+          "origin": "无锡",
+          "destination": "苏州",
+          "cost": 25,
+          "hours": 0.35,
+          "notes": "城际/打车"
+        }
+      ],
+      "risks": []
+    },
+
+    {
+      "name": "飞南京后高铁到苏州（2026-02-27）",
       "legs": [
         {
           "mode": "flight",
           "origin": "海口",
           "destination": "南京",
-          "cost": 390,
+          "cost": 0,
           "hours": 2.5,
-          "notes": "淡季有特价",
-          "price_key": "hak_nkg"
+          "notes": "实时取价 HAK→NKG 2026-02-27",
+          "price_key": "hak_nkg_20260227"
         },
         {
           "mode": "rail",
@@ -116,6 +268,190 @@
           "cost": 95,
           "hours": 1.2,
           "notes": "南京南高铁"
+        }
+      ],
+      "risks": []
+    },
+    {
+      "name": "飞南京后高铁到苏州（2026-02-28）",
+      "legs": [
+        {
+          "mode": "flight",
+          "origin": "海口",
+          "destination": "南京",
+          "cost": 0,
+          "hours": 2.5,
+          "notes": "实时取价 HAK→NKG 2026-02-28",
+          "price_key": "hak_nkg_20260228"
+        },
+        {
+          "mode": "rail",
+          "origin": "南京",
+          "destination": "苏州",
+          "cost": 95,
+          "hours": 1.2,
+          "notes": "南京南高铁"
+        }
+      ],
+      "risks": []
+    },
+    {
+      "name": "飞南京后高铁到苏州（2026-03-01）",
+      "legs": [
+        {
+          "mode": "flight",
+          "origin": "海口",
+          "destination": "南京",
+          "cost": 0,
+          "hours": 2.5,
+          "notes": "实时取价 HAK→NKG 2026-03-01",
+          "price_key": "hak_nkg_20260301"
+        },
+        {
+          "mode": "rail",
+          "origin": "南京",
+          "destination": "苏州",
+          "cost": 95,
+          "hours": 1.2,
+          "notes": "南京南高铁"
+        }
+      ],
+      "risks": []
+    },
+
+    {
+      "name": "国际：海口→新加坡（2026-02-27）",
+      "legs": [
+        {
+          "mode": "flight",
+          "origin": "海口",
+          "destination": "新加坡",
+          "cost": 0,
+          "hours": 0,
+          "notes": "实时取价 HAK→SIN 2026-02-27",
+          "price_key": "hak_sin_20260227"
+        }
+      ],
+      "risks": []
+    },
+    {
+      "name": "国际：海口→新加坡（2026-02-28）",
+      "legs": [
+        {
+          "mode": "flight",
+          "origin": "海口",
+          "destination": "新加坡",
+          "cost": 0,
+          "hours": 0,
+          "notes": "实时取价 HAK→SIN 2026-02-28",
+          "price_key": "hak_sin_20260228"
+        }
+      ],
+      "risks": []
+    },
+    {
+      "name": "国际：海口→新加坡（2026-03-01）",
+      "legs": [
+        {
+          "mode": "flight",
+          "origin": "海口",
+          "destination": "新加坡",
+          "cost": 0,
+          "hours": 0,
+          "notes": "实时取价 HAK→SIN 2026-03-01",
+          "price_key": "hak_sin_20260301"
+        }
+      ],
+      "risks": []
+    },
+
+    {
+      "name": "国际：海口→首尔(仁川)（2026-02-27）",
+      "legs": [
+        {
+          "mode": "flight",
+          "origin": "海口",
+          "destination": "首尔(仁川)",
+          "cost": 0,
+          "hours": 0,
+          "notes": "实时取价 HAK→ICN 2026-02-27",
+          "price_key": "hak_icn_20260227"
+        }
+      ],
+      "risks": []
+    },
+    {
+      "name": "国际：海口→首尔(仁川)（2026-02-28）",
+      "legs": [
+        {
+          "mode": "flight",
+          "origin": "海口",
+          "destination": "首尔(仁川)",
+          "cost": 0,
+          "hours": 0,
+          "notes": "实时取价 HAK→ICN 2026-02-28",
+          "price_key": "hak_icn_20260228"
+        }
+      ],
+      "risks": []
+    },
+    {
+      "name": "国际：海口→首尔(仁川)（2026-03-01）",
+      "legs": [
+        {
+          "mode": "flight",
+          "origin": "海口",
+          "destination": "首尔(仁川)",
+          "cost": 0,
+          "hours": 0,
+          "notes": "实时取价 HAK→ICN 2026-03-01",
+          "price_key": "hak_icn_20260301"
+        }
+      ],
+      "risks": []
+    },
+
+    {
+      "name": "国际：海口→曼谷(BKK)（2026-02-27）",
+      "legs": [
+        {
+          "mode": "flight",
+          "origin": "海口",
+          "destination": "曼谷(BKK)",
+          "cost": 0,
+          "hours": 0,
+          "notes": "实时取价 HAK→BKK 2026-02-27",
+          "price_key": "hak_bkk_20260227"
+        }
+      ],
+      "risks": []
+    },
+    {
+      "name": "国际：海口→曼谷(BKK)（2026-02-28）",
+      "legs": [
+        {
+          "mode": "flight",
+          "origin": "海口",
+          "destination": "曼谷(BKK)",
+          "cost": 0,
+          "hours": 0,
+          "notes": "实时取价 HAK→BKK 2026-02-28",
+          "price_key": "hak_bkk_20260228"
+        }
+      ],
+      "risks": []
+    },
+    {
+      "name": "国际：海口→曼谷(BKK)（2026-03-01）",
+      "legs": [
+        {
+          "mode": "flight",
+          "origin": "海口",
+          "destination": "曼谷(BKK)",
+          "cost": 0,
+          "hours": 0,
+          "notes": "实时取价 HAK→BKK 2026-03-01",
+          "price_key": "hak_bkk_20260301"
         }
       ],
       "risks": []
