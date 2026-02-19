@@ -88,3 +88,12 @@ jobs:
           path: |
             data/sample_options.json
             data/routes_config.json
+      - name: Upload outputs (artifact)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: outputs
+          path: |
+            summary.md
+            data/sample_options.json
+            data/routes_config.json
