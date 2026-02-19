@@ -21,6 +21,8 @@ class RouteQuery:
     key: str
     origin: str
     destination: str
+    # 兼容两种：1) 指定日期 departure_date；2) 用 offset 计算日期
+    departure_date: str | None
     date_offset_days: int
 
 
@@ -119,21 +121,24 @@ def resolve_queries(config: dict[str, Any]) -> list[RouteQuery]:
                 key=item["key"],
                 origin=item["origin"],
                 destination=item["destination"],
+                departure_date=item.get("departure_date"),
                 date_offset_days=int(item.get("date_offset_days", 3)),
             )
         )
     return queries
 
 
-def build_departure_date(offset_days: int) -> str:
-    return (date.today() + timedelta(days=offset_days)).isoformat()
+def build_departure_date(q: RouteQuery) -> str:
+    if q.departure_date:
+        return q.departure_date
+    return (date.today() + timedelta(days=q.date_offset_days)).isoformat()
 
 
 def fetch_prices(client: AmadeusClient, queries: list[RouteQuery]) -> list[PriceResult]:
     token = client.get_access_token()
     results: list[PriceResult] = []
     for q in queries:
-        dep = build_departure_date(q.date_offset_days)
+        dep = build_departure_date(q)
         amount, currency = client.get_lowest_oneway_price(
             token=token,
             origin=q.origin,
