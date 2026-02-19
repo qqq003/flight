@@ -1,0 +1,13 @@
+{
+  "routes": [
+    {"key": "hak_sha_direct", "origin": "HAK", "destination": "SHA", "date_offset_days": 3},
+    {"key": "hak_pvg_direct", "origin": "HAK", "destination": "PVG", "date_offset_days": 3},
+    {"key": "zha_sha", "origin": "ZHA", "destination": "SHA", "date_offset_days": 3},
+    {"key": "hak_can", "origin": "HAK", "destination": "CAN", "date_offset_days": 3},
+    {"key": "can_hgh", "origin": "CAN", "destination": "HGH", "date_offset_days": 3},
+    {"key": "hak_szx", "origin": "HAK", "destination": "SZX", "date_offset_days": 3},
+    {"key": "szx_ngb", "origin": "SZX", "destination": "NGB", "date_offset_days": 3},
+    {"key": "hak_wux", "origin": "HAK", "destination": "WUX", "date_offset_days": 3},
+    {"key": "hak_nkg", "origin": "HAK", "destination": "NKG", "date_offset_days": 3}
+  ]
+}
