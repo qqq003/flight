@@ -80,6 +80,20 @@ jobs:
           print("body_prefix", (r.text or "")[:120].replace("\n", " "))
           PY
 
+      - name: Inspect planner.py for live/mock switch
+        run: |
+          python - <<'PY'
+          import re, pathlib
+          p = pathlib.Path("planner.py")
+          t = p.read_text(encoding="utf-8", errors="ignore")
+          # 打印包含关键字的行（不泄露密钥）
+          keys = ["AMADEUS", "amadeus", "sample_options", "routes_config", "test.api.amadeus.com", "oauth2", "flight-offers", "requests"]
+          for i, line in enumerate(t.splitlines(), 1):
+              if any(k in line for k in keys):
+                  print(f"{i:04d}: {line}")
+          PY
+
+
       - name: Run planner (debug + run)
         run: |
           echo "PWD=$(pwd)"
