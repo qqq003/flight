@@ -6,7 +6,6 @@ on:
 jobs:
   smoke:
     runs-on: ubuntu-latest
-
     env:
       AMADEUS_CLIENT_ID: ${{ secrets.AMADEUS_CLIENT_ID }}
       AMADEUS_CLIENT_SECRET: ${{ secrets.AMADEUS_CLIENT_SECRET }}
@@ -21,20 +20,15 @@ jobs:
           python-version: "3.11"
 
       - name: Install dependencies
-        shell: bash
         run: |
-          set -euo pipefail
           python -m pip install -U pip
           if [ -f requirements.txt ]; then
             pip install -r requirements.txt
           fi
-          # pytest 用于可选测试
-          pip install pytest
+          pip install pytest requests
 
       - name: Verify env loaded (no secrets printed)
-        shell: bash
         run: |
-          set -euo pipefail
           if [ -z "${AMADEUS_CLIENT_ID:-}" ]; then
             echo "AMADEUS_CLIENT_ID is EMPTY"
             exit 1
@@ -50,9 +44,7 @@ jobs:
           fi
 
       - name: Run tests (ignore 'no tests collected')
-        shell: bash
         run: |
-          set -euo pipefail
           set +e
           pytest -q
           code=$?
@@ -63,10 +55,33 @@ jobs:
           fi
           echo "pytest exit code: $code (0=ok,5=no tests collected)"
 
-      - name: Run planner (debug + run)
-        shell: bash
+      - name: Amadeus token smoke (live connectivity; no token printed)
         run: |
-          set -euo pipefail
+          python - <<'PY'
+          import os, requests
+          cid = os.getenv("AMADEUS_CLIENT_ID")
+          sec = os.getenv("AMADEUS_CLIENT_SECRET")
+          assert cid and sec, "missing amadeus creds"
+
+          url = "https://test.api.amadeus.com/v1/security/oauth2/token"
+          r = requests.post(
+              url,
+              data={
+                  "grant_type": "client_credentials",
+                  "client_id": cid,
+                  "client_secret": sec,
+              },
+              timeout=20,
+          )
+
+          print("token_url", url)
+          print("token_status", r.status_code)
+          print("content_type", r.headers.get("content-type", ""))
+          print("body_prefix", (r.text or "")[:120].replace("\n", " "))
+          PY
+
+      - name: Run planner (debug + run)
+        run: |
           echo "PWD=$(pwd)"
           echo "Top-level files:"
           ls -la
@@ -83,7 +98,6 @@ jobs:
           p="$(find . -maxdepth 3 -name "planner.py" -print | head -n 1)"
           if [ -z "$p" ]; then
             echo "planner.py not found in this checkout."
-            echo "If your entrypoint is different, edit this workflow to run the correct command from README."
             exit 1
           fi
 
