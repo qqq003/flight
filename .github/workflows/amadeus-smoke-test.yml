@@ -65,6 +65,10 @@ jobs:
           set -euo pipefail
           python planner.py --data data/sample_options.json
 
+      - name: Summarize & rank routes (total cost)
+        run: |
+          python scripts/summarize_and_rank.py
+
       - name: Summarize results to a table
         run: |
           python scripts/summarize_results.py
