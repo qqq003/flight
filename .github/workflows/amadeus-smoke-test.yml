@@ -33,9 +33,12 @@ jobs:
           print("Env OK")
           PY
 
-      - name: Run program
+      - name: Run tests
         run: |
-          # 按你的 README 改成正确入口命令（下面给了几个常见备选）
-          if [ -f main.py ]; then python main.py; \
-          elif [ -f app.py ]; then python app.py; \
-          else echo "Please edit workflow to use your actual entrypoint from README" && exit 1; fi
+          python -m pip install -U pip
+          pip install pytest
+          pytest -q
+
+      - name: Run planner
+        run: |
+          python planner.py
